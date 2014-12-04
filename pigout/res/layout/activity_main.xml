@@ -60,7 +60,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY"
-        android:src="@drawable/buttonlogo" />
+        android:src="@drawable/ic_buttonlogo" />
 
     <ImageView
         android:id="@+id/PigoutTitle"
@@ -68,6 +68,6 @@
         android:layout_height="50dp"
         android:layout_alignLeft="@+id/ingredientsView"
         android:layout_alignParentTop="true"
-        android:src="@drawable/pigout_text_logo" />
+        android:src="@drawable/ic_pigout_text_logo" /> 
 
 </RelativeLayout>
