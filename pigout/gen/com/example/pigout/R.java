@@ -1082,7 +1082,9 @@ containing a value of this type.
         public static final int ic_pigout_text_logo=0x7f020059;
     }
     public static final class id {
-        public static final int PigoutTitle=0x7f050041;
+        public static final int AboutUs=0x7f050044;
+        public static final int AddIngredients=0x7f050041;
+        public static final int Search=0x7f050045;
         public static final int UserInputIngredient=0x7f050042;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
@@ -1098,8 +1100,8 @@ containing a value of this type.
         public static final int action_settings=0x7f050043;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
-        public static final int appliances=0x7f05003e;
-        public static final int appliancesView=0x7f050040;
+        public static final int appliances=0x7f05003c;
+        public static final int appliancesView=0x7f05003e;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
@@ -1117,7 +1119,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int ingredients=0x7f05003c;
+        public static final int ingredients=0x7f050040;
         public static final int ingredientsView=0x7f05003f;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
@@ -1283,6 +1285,11 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b008c;
+        public static final int MyActionBar=0x7f0b008e;
+        public static final int MyActionBarTextStyle=0x7f0b008f;
+        /**  Custom theme BELOW
+         */
+        public static final int PigoutTheme=0x7f0b008d;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;

@@ -7,27 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.pigout.MainActivity" 
-    android:background="#006400">
-
-    <ListView
-        android:id="@+id/ingredients"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/find_recipe"
-        android:layout_alignTop="@+id/appliances"
-        android:layout_toLeftOf="@+id/find_recipe" >
-
-    </ListView>
-
-    <TextView
-        android:id="@+id/ingredientsView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/appliances"
-        android:layout_alignLeft="@+id/ingredients"
-        android:layout_toLeftOf="@+id/find_recipe"
-        android:text="@string/ingredients_string"
-        android:textColor="#f000ff" />
+    android:background="#00FFFF">
 
     <ListView
         android:id="@+id/appliances"
@@ -36,7 +16,8 @@
         android:layout_above="@+id/find_recipe"
         android:layout_below="@+id/appliancesView"
         android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/find_recipe" >
+        android:layout_toRightOf="@+id/find_recipe"
+        android:background="#FFFFFF" >
 
     </ListView>
 
@@ -44,14 +25,20 @@
         android:id="@+id/appliancesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ingredientsView"
+        android:layout_alignBottom="@+id/ingredientsView"
         android:layout_alignLeft="@+id/appliances"
-        android:layout_alignRight="@+id/appliances"
-        android:layout_below="@+id/PigoutTitle"
-        android:layout_marginTop="16dp"
         android:text="@string/appliances"
-        android:textColor="#f000ff" />
+        android:textColor="#eb64b6" />
 
-
+    <TextView
+        android:id="@+id/ingredientsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/ingredients"
+        android:text="@string/ingredients_string"
+        android:textColor="#eb64b6" />
 
     <ImageButton
         android:id="@+id/find_recipe"
@@ -59,15 +46,27 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:src="@drawable/ic_buttonlogo" />
 
-    <ImageView
-        android:id="@+id/PigoutTitle"
-        android:layout_width="700dp"
+    <ListView
+        android:id="@+id/ingredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/find_recipe"
+        android:layout_below="@+id/AddIngredients"
+        android:layout_toLeftOf="@+id/find_recipe"
+        android:background="#FFFFFF" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/AddIngredients"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/ingredientsView"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/ic_pigout_text_logo" /> 
+        android:layout_alignLeft="@+id/ingredients"
+        android:layout_below="@+id/ingredientsView"
+        android:hint="Add Ingredient" />
 
 </RelativeLayout>
