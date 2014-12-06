@@ -1,7 +1,18 @@
 package com.example.pigout;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
 import android.R.string;
 import android.support.v7.app.ActionBarActivity;
@@ -22,6 +33,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.EditText;
 
+
 public class MainActivity extends ActionBarActivity {
 	
 	private Object ClickonListView;
@@ -32,8 +44,11 @@ public class MainActivity extends ActionBarActivity {
 	 private ListView Appliances_List_View;
 	 private ListView Ingredients_List_View;
 	 private Button addIngredientButton;
+	 private Button goButton;
+	 public HttpResponse response;
 	 
-	 private List<String> myIngredients = new ArrayList<String>();
+	 //private List<String> myIngredients = new ArrayList<String>();
+	 List<NameValuePair> myIngredients = new ArrayList<NameValuePair>();
 	 
 
 	@Override
@@ -46,7 +61,11 @@ public class MainActivity extends ActionBarActivity {
 		Appliances_List_View = (ListView) findViewById(R.id.appliances);
 		InputIngredient = (EditText) findViewById(R.id.UserInputIngredient);
 		addIngredientButton = (Button) findViewById(R.id.AddIngredients);
+		goButton = (Button) findViewById(R.id.find_recipe);
 		
+		//Creating HttpClient and HttpPost to POST the requests to API
+		final HttpClient client = new DefaultHttpClient();
+		final HttpPost post = new HttpPost("http://www.recipepuppy.com/api/");
 		
 		
 		populateListView_Appliances();
@@ -71,9 +90,12 @@ public class MainActivity extends ActionBarActivity {
 
 				// Set up the buttons
 				builder.setPositiveButton("Add to list!", new DialogInterface.OnClickListener() { 
-				    @Override
+				    private boolean add;
+
+					@Override
 				    public void onClick(DialogInterface dialog, int which) {
-				    	myIngredients.add(input.getText().toString()); //adds the String input to the ArrayList
+				    	//myIngredients.add(input.getText().toString()); //adds the String input to the ArrayList
+				    	myIngredients.add(new BasicNameValuePair(input.getText().toString(), null));
 				    	populateListView_Ingredients(); //This function will create the elements in the ListView
 				    }
 				});
@@ -91,13 +113,43 @@ public class MainActivity extends ActionBarActivity {
 		
 		});
 		
+		try {
+			
+			post.setEntity(new UrlEncodedFormEntity(myIngredients));
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//OnClick of Button
+		
+		goButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				//Excecuting the HTTPPOST request
+				
+				try {
+					response = client.execute(post);
+				} catch (ClientProtocolException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+		});
+		
 	}
 	
 
 	private void populateListView_Ingredients() {
 
 		//Build the adapter
-		ArrayAdapter<String> adapter_ingredientView= new ArrayAdapter<String>(this, 
+		ArrayAdapter<NameValuePair> adapter_ingredientView= new ArrayAdapter<NameValuePair>(this, 
 				R.layout.listview_ingredients,
 				myIngredients); //Constructing the Adapter
 				
