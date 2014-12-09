@@ -62,6 +62,7 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		
 		StrictMode.ThreadPolicy policy = new
 		StrictMode.ThreadPolicy.Builder().permitAll().build();
 		StrictMode.setThreadPolicy(policy);
@@ -177,8 +178,10 @@ public class MainActivity extends ActionBarActivity {
 				final HttpClient client = new DefaultHttpClient();
 				String strUrl = "http://www.recipepuppy.com/api/?i=";
 				String inStr = ArrayToString(myIngredients, ",");
-				String format_return = "&format=xml";
-				String finalStr = strUrl + inStr ;//+ format_return;
+				myIngredients.clear();
+				inStr = inStr.replaceAll("\\s", "");
+				String format_return = "&p=3";
+				String finalStr = strUrl + inStr + format_return;
 				final HttpPost post = new HttpPost(finalStr);
 				
 				//Excecuting the HTTPPOST request

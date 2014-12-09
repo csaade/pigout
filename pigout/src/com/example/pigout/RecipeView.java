@@ -110,6 +110,9 @@ public class RecipeView extends ActionBarActivity {
 			Intent i = new Intent(getApplicationContext(),MainActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			RecipeList.clear();
+			Ingredients.clear();
+			Links.clear();
 			startActivity(i);
 			return true;
 		}
