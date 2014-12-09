@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="-240dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_pigout2" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="When living in a dorm or a small apartment cooking becomes such a hassle because of limited appliances and lack of ingredients. As five hungry college students, sick of dining hall food with relatively low cooking skills, we wanted to create an app that would give us ideas for easy recipes from the ingredients already on our shelves. Our app provides tons of possible recipe options that provide a fast and easy way to enjoy the comforts of home."
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="61dp"
+        android:text="Meet the Team: 
+Cyril Saade-Project Lead
+Erika Schwartz -GUI Designer
+Tana Hungwe- Interface Designer
+Wasim Khan- Processing Designer
+Hannah Hebert- Documentation Manager"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

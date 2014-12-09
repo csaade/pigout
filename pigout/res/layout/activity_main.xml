@@ -2,71 +2,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pigout.MainActivity" 
-    android:background="#00FFFF">
+    tools:context="com.example.pigout.MainActivity" >
 
-    <ListView
-        android:id="@+id/appliances"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/find_recipe"
-        android:layout_below="@+id/appliancesView"
-        android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/find_recipe"
-        android:background="#FFFFFF" >
-
-    </ListView>
-
-    <TextView
-        android:id="@+id/appliancesView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ingredientsView"
-        android:layout_alignBottom="@+id/ingredientsView"
-        android:layout_alignLeft="@+id/appliances"
-        android:text="@string/appliances"
-        android:textColor="#eb64b6" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="-240dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_pigout2" />
 
     <TextView
         android:id="@+id/ingredientsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ingredients"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/ingredients"
         android:text="@string/ingredients_string"
+        android:textSize="30sp"
         android:textColor="#eb64b6" />
-
-    <ImageButton
-        android:id="@+id/find_recipe"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_buttonlogo" />
 
     <ListView
         android:id="@+id/ingredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/find_recipe"
-        android:layout_below="@+id/AddIngredients"
-        android:layout_toLeftOf="@+id/find_recipe"
+        android:layout_alignTop="@+id/AddIngredients"
+        android:layout_toLeftOf="@+id/AddIngredients"
         android:background="#FFFFFF" >
-
     </ListView>
 
     <Button
         android:id="@+id/AddIngredients"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/ingredients"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/ingredientsView"
-        android:hint="Add Ingredient" />
+        android:layout_marginTop="40dp"
+        android:text="Add Ingredient"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/RemoveIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/AddIngredients"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/AddIngredients"
+        android:text="Remove Ingredient"
+        android:textColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/find_recipe"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/RemoveIngredients"
+        android:layout_below="@+id/RemoveIngredients"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="76dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_buttonlogo" />
 
 </RelativeLayout>
